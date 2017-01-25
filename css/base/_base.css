@@ -1,0 +1,97 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+  background-color: #000080;
+}
+
+table {
+  width:100vw;
+  background-color: #000080;
+  color: #fff;
+  font-family: arial, sans-serif;
+}
+
+th {
+  background-color: #FFFF00;
+  color: #000080;
+  font-size: 1.5vw;
+  text-align: left;
+  border-bottom: 3px solid #000080;
+  padding-left: 0.4vw;
+}
+
+tr {
+  border-bottom: 1px solid #000080;
+}
+
+td {
+  padding-left: 0.4vw;
+}
+
+.time {
+  background-color: #fff;
+  color: #000080;
+	font-weight: bold;
+}
+
+.destination {
+  width: 60vw;
+  overflow:hidden;
+}
+
+.platform {
+  width: 8vw;
+}
+
+.time, .line {
+  width: 10vw;
+  font-size:2vw;
+  font-weight:bold;
+  width:8vw;
+}
+
+.line {
+  font-size: 2vw;
+  width:10vw;
+}
+
+.final-destination {
+  font-weight: bold;
+  font-size:1.8vw;
+}
+
+.stops {
+  height: 25px;
+  width: 80vw;
+
+  overflow: hidden;
+  position: relative;
+}
+
+.stops div {
+  display: block;
+  width: 200%;
+  height: 30px;
+
+  position: absolute;
+  overflow: hidden;
+
+  animation: marquee 22s linear infinite;
+}
+
+.stops span.stops {
+  float: left;
+  position:relative;
+  width: 50%;
+  white-space: nowrap;
+}
+
+.stops span.stop {
+  margin-right:1.2vw;
+}
+
+@keyframes marquee {
+  0% { left: 0%; }
+  100% { left: -100%; }
+}
