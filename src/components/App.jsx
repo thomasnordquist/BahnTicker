@@ -11,9 +11,8 @@ class HomePage extends Component {
   }
 
   componentDidMount() {
-    setInterval(() => this.update(), 30000)
+    setInterval(() => this.update(), 60000)
     setInterval(() => this.setState(this.state), 1000)
-
   }
 
   async update() {
