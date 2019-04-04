@@ -11,11 +11,12 @@ class HomePage extends Component {
   }
 
   componentDidMount() {
-    setInterval(() => this.update(), 3000)
+    setInterval(() => this.update(), 30000)
+    setInterval(() => this.setState(this.state), 1000)
+
   }
 
   async update() {
-    const dispatch = this.props.dispatch;
     let response = await axios.get('/trains')
     this.setState({ data: response.data })
   }
