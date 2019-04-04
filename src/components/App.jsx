@@ -28,8 +28,9 @@ class HomePage extends Component {
 
     return (
       <div>
-        <div>
-          <center><h4 style={{color: 'white', fontSize: '2em', fontWeight: 'bold'}}>Darmstadt Schloß {moment().format('HH:m:s')}</h4></center>
+        <div style={{color: 'white', fontSize: '2em', fontWeight: 'bold', lineHeight: '1.5em', padding: '8px'}}>
+          <div style={{ float: 'left' }}>Darmstadt Schloß</div>
+          <div style={{ float: 'right' }}>{moment().format('HH:mm:ss')}</div>
         </div>
         <table className="destination-board">
           <thead>
