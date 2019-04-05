@@ -12,7 +12,7 @@ const cheerio = require('cheerio');
 
 const Route = require('./model/route');
 const Stop = require('./model/stop');
-const moment = require('moment')
+const moment = require('moment-timezone')
 process.env.TZ && moment.tz(process.env.TZ)
 
 /**
