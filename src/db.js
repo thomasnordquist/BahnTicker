@@ -13,6 +13,8 @@ const cheerio = require('cheerio');
 const Route = require('./model/route');
 const Stop = require('./model/stop');
 const moment = require('moment')
+process.env.TZ && moment.tz(process.env.TZ)
+
 /**
  * @var dbUrl visit https://reiseauskunft.bahn.de/bin/bhftafel.exe and copy the link of the refresh button
  */
