@@ -21,10 +21,7 @@ class HomePage extends Component {
   }
 
   render() {
-    if (!this.state.data) {
-      return null
-    }
-    const lines = this.state.data;
+    const lines = this.state.data || [];
 
     return (
       <div>
@@ -41,10 +38,10 @@ class HomePage extends Component {
             </tr>
           </thead>
           <tbody>
-          {lines.slice(0,30).map((line) =>
-              <tr>
+          {lines.slice(0, 30).sort((a, b) => a.time > b.time).map((line) =>
+              <tr key={`${line.time}-${line.name}`}>
                   <td className="time">{line.time}</td>
-                  <td className="line">{line.name}</td>
+                  <td className="line">{line.name.replace(/STR ([0-9]+)/, 'Linie $1')}</td>
                   <td className="destination">
                       <div className="final-destination">{line.destination}</div>
                       <div className="stops">
