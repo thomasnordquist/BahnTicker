@@ -18,18 +18,21 @@
     "koa-static": "^5.0.0",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.23",
+    "nodemon": "^1.19.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "style-loader": "^0.23.1",
     "webpack": "^4.29.6",
-    "webpack-cli": "^3.3.0"
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.3.1"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/mxstbr/react-boilerplate.git"
   },
   "scripts": {
-    "run": "webpack && node server.js"
+    "run": "webpack && node server.js",
+    "dev": "webpack-dev-server --mode=development & nodemon server.js"
   },
   "license": "MIT"
 }

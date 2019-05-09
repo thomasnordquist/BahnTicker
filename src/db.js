@@ -60,8 +60,11 @@ async function getCurrentTrains(resolve) {
   let trainMap = {}
   let counter = 0
   while (Object.values(trainMap).length < 5 && counter < 4) {
+    const time = moment().add(counter, 'hours').format('HH:mm')
+    console.log(time)
+
     counter += 1
-    const trains = await trainsForTime(moment().add(counter, 'hours').format('HH:mm'))
+    const trains = await trainsForTime(time)
     await new Promise((resolve) => setTimeout(() => resolve(), 500))
     console.log(trains)
     for (train of trains) {

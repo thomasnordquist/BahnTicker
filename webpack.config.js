@@ -5,7 +5,12 @@ module.exports = {
     './src/app.jsx',
   ],
   output: {
-    publicPath: './'
+    publicPath: './dist'
+  },
+  devServer: {
+    proxy: {
+      '/trains': 'http://localhost:3000'
+    }
   },
   module: {
     rules: [{
@@ -19,8 +24,8 @@ module.exports = {
       }
     },
     {
-          test: /\.css$/,
-          use: ['style-loader', 'css-loader'],
+      test: /\.css$/,
+      use: ['style-loader', 'css-loader'],
     }]
   },
   plugins: [
