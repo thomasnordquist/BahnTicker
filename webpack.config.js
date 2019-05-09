@@ -5,7 +5,7 @@ module.exports = {
     './src/app.jsx',
   ],
   output: {
-    publicPath: './dist'
+    publicPath: './'
   },
   devServer: {
     proxy: {

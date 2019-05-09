@@ -66,7 +66,6 @@ async function getCurrentTrains(resolve) {
     counter += 1
     const trains = await trainsForTime(time)
     await new Promise((resolve) => setTimeout(() => resolve(), 500))
-    console.log(trains)
     for (train of trains) {
       trainMap[`${train.time}-${train.name}`] = train
     }

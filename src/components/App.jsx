@@ -6,13 +6,13 @@ const moment = require('moment')
 class HomePage extends Component {
   constructor(props) {
     super(props);
-    this.state = { data: null }
+    this.state = { data: null, now: moment() }
     this.update(this);
   }
 
   componentDidMount() {
     setInterval(() => this.update(), 60000)
-    setInterval(() => this.setState(this.state), 1000)
+    setInterval(() => this.setState({...this.state, now: moment()}), 500)
   }
 
   async update() {
@@ -27,7 +27,7 @@ class HomePage extends Component {
       <div>
         <div style={{color: 'white', fontSize: '2em', fontWeight: 'bold', lineHeight: '1.5em', padding: '8px'}}>
           <div style={{ float: 'left' }}>Darmstadt Schloß</div>
-          <div style={{ float: 'right' }}>{moment().format('HH:mm:ss')}</div>
+          <div style={{ float: 'right' }}>{this.state.now.format('HH:mm:ss')}</div>
         </div>
         <table className="destination-board">
           <thead>
