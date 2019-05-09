@@ -38,7 +38,7 @@ class HomePage extends Component {
             </tr>
           </thead>
           <tbody>
-          {lines.slice(0, 30).sort((a, b) => a.time > b.time).map((line) =>
+          {lines.slice(0, 30).sort((a, b) => a.time.localeCompare(b.time)).map((line) =>
               <tr key={`${line.time}-${line.name}`}>
                   <td className="time">{line.time}</td>
                   <td className="line">{line.name.replace(/STR ([0-9]+)/, 'Linie $1')}</td>
