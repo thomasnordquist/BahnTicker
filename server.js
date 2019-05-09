@@ -5,7 +5,7 @@ const _ = require('koa-route');
 const db = require('./src/db')
 
 let lastResponse
-let lastResponseTime
+let lastResponseTime = 0
 let responsePromise
 let responseValidity = 30 * 1000
 async function start() {
