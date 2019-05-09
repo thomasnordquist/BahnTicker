@@ -4,12 +4,22 @@ const config = require('./webpack.config.js');
 const _ = require('koa-route');
 const db = require('./src/db')
 
+let lastResponse
+let lastResponseTime
+let responsePromise
+let responseValidity = 30 * 1000
 async function start() {
   const app = new Koa();
   app.use(serve('./dist'))
 
   app.use(_.get('/trains', async (ctx) => {
-    ctx.body = await new Promise(resolve => db(resolve))
+    if ((Date.now() - lastResponseTime) > responseValidity) {
+      responsePromise = new Promise(resolve => db(resolve))
+      lastResponse = await responsePromise
+      responsePromise = undefined
+      lastResponseTime = Date.now()
+    }
+    ctx.body = responsePromise ? await responsePromise : lastResponse
   }));
 
   app.listen(3000)
